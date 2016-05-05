@@ -385,10 +385,12 @@
 
 		popover.show();
 
+		var isInsideModal = $('.modal-dialog').find(element).length === 1;
+
 		// Place the popover
 		switch (placement) {
 			case 'bottom':
-				styles.top = offset.top + height;
+				styles.top = offset.top + height - (isInsideModal ? $('.modal-dialog').offset().top : 0);
 				break;
 			case 'right':
 				styles.left = offset.left + width;
